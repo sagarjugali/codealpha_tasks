@@ -1,0 +1,563 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(circle at top left, #41295a, transparent 40%),
+        radial-gradient(circle at bottom right, #2F0743, transparent 40%),
+        #080808;
+
+    overflow-x: hidden;
+}
+
+
+/* Background */
+
+.background-circle {
+    position: fixed;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.4;
+
+    z-index: -1;
+}
+
+.circle1 {
+    width: 300px;
+    height: 300px;
+
+    background: #ff0080;
+
+    top: -100px;
+    left: -100px;
+}
+
+.circle2 {
+    width: 350px;
+    height: 350px;
+
+    background: #7928ca;
+
+    bottom: -150px;
+    right: -100px;
+}
+
+
+/* Main Player */
+
+.music-player {
+
+    width: 420px;
+
+    padding: 28px;
+
+    border-radius: 28px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* Header */
+
+header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+header h1 {
+
+    font-size: 26px;
+
+    letter-spacing: 1px;
+
+}
+
+header p {
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    margin-top: 4px;
+
+}
+
+#favorite-btn {
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: rgba(255, 255, 255, 0.1);
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+#favorite-btn:hover {
+
+    transform: scale(1.1);
+
+    background: rgba(255, 255, 255, 0.2);
+
+}
+
+
+/* Album */
+
+.album-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin: 10px 0 25px;
+
+}
+
+.album-cover {
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(135deg, #ff0080, #7928ca, #00c6ff);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+
+    animation: rotate 12s linear infinite;
+
+    animation-play-state: paused;
+
+}
+
+
+/* Inner disc */
+
+.album-cover::before {
+
+    content: "";
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    position: absolute;
+
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,0.2);
+
+}
+
+.music-note {
+
+    font-size: 60px;
+
+    z-index: 2;
+
+}
+
+
+/* Rotation */
+
+@keyframes rotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* Song */
+
+.song-info {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+}
+
+.song-info h2 {
+
+    font-size: 23px;
+
+}
+
+.song-info p {
+
+    color: #aaa;
+
+    margin-top: 6px;
+
+}
+
+
+/* Progress */
+
+.progress-section {
+
+    margin-top: 10px;
+
+}
+
+.time {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #aaa;
+
+    font-size: 12px;
+
+    margin-bottom: 5px;
+
+}
+
+input[type="range"] {
+
+    width: 100%;
+
+    cursor: pointer;
+
+    accent-color: #ff2d8d;
+
+}
+
+
+/* Controls */
+
+.main-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin: 22px 0;
+
+}
+
+.main-controls button {
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.main-controls button:hover {
+
+    transform: scale(1.15);
+
+    background: rgba(255,255,255,0.1);
+
+}
+
+.play-button {
+
+    width: 62px !important;
+    height: 62px !important;
+
+    background: linear-gradient(
+        135deg,
+        #ff0080,
+        #7928ca
+    ) !important;
+
+    font-size: 22px !important;
+
+    box-shadow:
+        0 8px 25px rgba(255, 0, 128, 0.35);
+
+}
+
+
+/* Active controls */
+
+.control-active {
+
+    color: #ff4b9b !important;
+
+}
+
+
+/* Volume */
+
+.volume-section {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+
+}
+
+.volume-section input {
+
+    flex: 1;
+
+}
+
+
+/* Autoplay */
+
+.autoplay {
+
+    text-align: center;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    margin-bottom: 22px;
+
+}
+
+.autoplay input {
+
+    accent-color: #ff2d8d;
+
+}
+
+
+/* Playlist */
+
+.playlist {
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    padding-top: 20px;
+
+}
+
+.playlist-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+
+}
+
+.playlist-header h3 {
+
+    font-size: 17px;
+
+}
+
+.playlist-header span {
+
+    color: #888;
+
+    font-size: 12px;
+
+}
+
+
+/* Playlist item */
+
+.playlist ul {
+
+    list-style: none;
+
+}
+
+.playlist li {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    margin-bottom: 7px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+.playlist li:hover {
+
+    background: rgba(255,255,255,0.08);
+
+}
+
+.playlist li.active {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,0,128,0.25),
+            rgba(121,40,202,0.15)
+        );
+
+}
+
+
+/* Track number */
+
+.track-number {
+
+    width: 25px;
+
+    color: #777;
+
+    font-size: 12px;
+
+}
+
+
+/* Icon */
+
+.track-icon {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.1);
+
+}
+
+
+/* Track information */
+
+.track-info {
+
+    flex: 1;
+
+}
+
+.track-info strong {
+
+    display: block;
+
+    font-size: 14px;
+
+}
+
+.track-info small {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #888;
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .music-player {
+
+        width: 92%;
+
+        padding: 22px;
+
+    }
+
+    .album-cover {
+
+        width: 180px;
+        height: 180px;
+
+    }
+
+}

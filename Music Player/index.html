@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VibeWave Music Player</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="background-circle circle1"></div>
+    <div class="background-circle circle2"></div>
+
+    <main class="music-player">
+
+        <!-- Header -->
+        <header>
+            <div>
+                <h1>VibeWave</h1>
+                <p>Your personal music player</p>
+            </div>
+
+            <button id="favorite-btn">♡</button>
+        </header>
+
+
+        <!-- Album -->
+        <div class="album-container">
+
+            <div class="album-cover" id="album-cover">
+                <div class="music-note">♫</div>
+            </div>
+
+        </div>
+
+
+        <!-- Song Information -->
+        <section class="song-info">
+
+            <h2 id="song-title">uptown funk</h2>
+
+            <p id="artist">Mark Ronson ft. Bruno Mars</p>
+
+        </section>
+
+
+        <!-- Progress -->
+        <section class="progress-section">
+
+            <div class="time">
+
+                <span id="current-time">0:00</span>
+
+                <span id="duration">0:00</span>
+
+            </div>
+
+            <input
+                type="range"
+                id="progress-bar"
+                min="0"
+                max="100"
+                value="0"
+            >
+
+        </section>
+
+
+        <!-- Main Controls -->
+        <section class="main-controls">
+
+            <button id="shuffle-btn" title="Shuffle">
+                🔀
+            </button>
+
+            <button id="prev-btn" title="Previous">
+                ⏮
+            </button>
+
+            <button id="play-btn" class="play-button" title="Play">
+                ▶
+            </button>
+
+            <button id="next-btn" title="Next">
+                ⏭
+            </button>
+
+            <button id="repeat-btn" title="Repeat">
+                🔁
+            </button>
+
+        </section>
+
+
+        <!-- Volume -->
+        <section class="volume-section">
+
+            <span>🔈</span>
+
+            <input
+                type="range"
+                id="volume"
+                min="0"
+                max="1"
+                step="0.01"
+                value="1"
+            >
+
+            <span>🔊</span>
+
+        </section>
+
+
+        <!-- Autoplay -->
+        <div class="autoplay">
+
+            <label>
+
+                <input type="checkbox" id="autoplay">
+
+                Autoplay next song
+
+            </label>
+
+        </div>
+
+
+        <!-- Playlist -->
+        <section class="playlist">
+
+            <div class="playlist-header">
+
+                <h3>Playlist</h3>
+
+                <span id="song-count">3 Songs</span>
+
+            </div>
+
+
+            <ul id="playlist">
+
+                <li data-index="0">
+
+                    <div class="track-number">01</div>
+
+                    <div class="track-icon">🎵</div>
+
+                    <div class="track-info">
+
+                        <strong>uptown funk</strong>
+
+                        <small>Mark Ronson ft. Bruno Mars</small>
+
+                    </div>
+
+                </li>
+
+
+                <li data-index="1">
+
+                    <div class="track-number">02</div>
+
+                    <div class="track-icon">🎵</div>
+
+                    <div class="track-info">
+
+                        <strong>perfect</strong>
+
+                        <small>Ed Sheeran</small>
+
+                    </div>
+
+                </li>
+
+
+                <li data-index="2">
+
+                    <div class="track-number">03</div>
+
+                    <div class="track-icon">🎵</div>
+
+                    <div class="track-info">
+
+                        <strong>blinding lights</strong>
+
+                        <small>The Weeknd</small>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+
+    <!-- Audio -->
+    <audio id="audio"></audio>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
